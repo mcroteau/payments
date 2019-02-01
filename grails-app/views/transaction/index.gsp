@@ -72,7 +72,7 @@
 			$tokenInput = $("#token-input")
 
 		var processingHtml = "Processing, please wait..."
-		stripe = Stripe("pk_test_vIMx4mBudjsFt1CZXgP00vTz");
+		stripe = Stripe("your publishable key");
 
 		elements = stripe.elements()
 		card = elements.create('card', {
@@ -97,19 +97,16 @@
 	  		}
 		});
 
-		//var processing = false;
 		$submitBtn.click(function(event){
 			event.preventDefault()
-			//if(!processing){
-				$processing.show()
-				stripe.createToken(card).then(function(result) {
-					processing = true;
-					$tokenInput.val(result.token.id)
+			$processing.show()
+			stripe.createToken(card).then(function(result) {
+				processing = true;
+				$tokenInput.val(result.token.id)
 
-					console.log(result.token.id)
-					$form.submit();
-				});
-			//}
+				console.log(result.token.id)
+				$form.submit();
+			});
 		})
 
 
