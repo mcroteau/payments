@@ -24,7 +24,7 @@ class TransactionController {
 
 		def token = params.token
 
-		Stripe.apiKey = "sk_test_4dQF1CReWZfRQG8tAEKVBPlg"
+		Stripe.apiKey = "your secret key"
 		def amountInCents = (amount * 100) as Integer
 
 

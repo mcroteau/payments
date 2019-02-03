@@ -73,7 +73,7 @@
 
 
 		var processingHtml = "Processing, please wait..."
-		stripe = Stripe("pk_test_vW1IhKs4nhfWiUHensHfT85B");
+		stripe = Stripe("your publishable key");
 
 		elements = stripe.elements()
 		card = elements.create('card', {
