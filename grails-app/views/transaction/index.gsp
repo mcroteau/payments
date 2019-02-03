@@ -71,8 +71,9 @@
 			$submitBtn = $("#submit-btn"),
 			$tokenInput = $("#token-input")
 
+
 		var processingHtml = "Processing, please wait..."
-		stripe = Stripe("your publishable key");
+		stripe = Stripe("pk_test_vW1IhKs4nhfWiUHensHfT85B");
 
 		elements = stripe.elements()
 		card = elements.create('card', {
@@ -96,6 +97,7 @@
 				$processing.html(processingHtml)
 	  		}
 		});
+
 
 		$submitBtn.click(function(event){
 			event.preventDefault()

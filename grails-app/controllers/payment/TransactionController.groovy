@@ -24,12 +24,12 @@ class TransactionController {
 
 		def token = params.token
 
-		Stripe.apiKey = "your secret key"
+		Stripe.apiKey = "sk_test_4dQF1CReWZfRQG8tAEKVBPlg"
 		def amountInCents = (amount * 100) as Integer
 
 
 		def transaction = new Transaction()
-		tranasction.amount = amount
+		transaction.amount = amount
 		transaction.save(flush:true)
 
 
@@ -44,14 +44,15 @@ class TransactionController {
 			
 		def message
 		if(charge){
-			//transaction.chargeId = charge.id
+			transaction.chargeId = charge.id
+			transaction.save(flush:true)
 			message = "Successfully charged ${charge.id} : ${transaction.id}"
 		}else{
-
+			transaction.delete(flush:true)
 			message = "Something went wrong"
 		}
 
-		[ message : message ]
+		[ message : message, transactions: Transaction.list() ]
 
 	}
 
