@@ -107,7 +107,7 @@
 				Below, Stripe calls via ajax its own services to retrieve a token
 				which you use to process a charge.
 
-				stripe.createToken(card) : makes the ajax call to get the token
+				stripe.createToken(card) : makes the ajax call or request to get the token
 				.then
 			**/
 			stripe.createToken(card).then(function(result) {
@@ -115,7 +115,6 @@
 					The function being called after
 					createToken, gets a result object
 				**/
-				//processing = true;
 				
 				//set the token input to the token id
 				$tokenInput.val(result.token.id)
